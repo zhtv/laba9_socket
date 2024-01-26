@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Чат</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="chat">
+    <div class="container">
+      <p>Ваш никнейм: <span id="nickname-display"></span></p>
+    </div>
+    <ul id="messages"></ul>
+    <div class="container">
+      <form id="message-form">
+        <input id="input-message" autocomplete="off" class="input-field" type="text" placeholder="Введите сообщение" />
+        <button class="submit-button">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const nickname = new URLSearchParams(window.location.search).get('nickname') || 'Anonymous';
+
+    document.getElementById('nickname-display').textContent = nickname;
+
+    const form = document.getElementById('message-form');
+    const input = document.getElementById('input-message');
+    const ul = document.getElementById('messages');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit('sendMessage', { nickname, message: input.value });
+        input.value = '';
+      }
+    });
+
+    socket.on('newMessage', (message) => {
+      const li = document.createElement('li');
+      li.textContent = message;
+      ul.appendChild(li);
+    });
+  </script>
+</body>
+<script src="/app.js"></script>
+</html>

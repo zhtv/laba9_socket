@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Чат для общения</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="chat">
+    <div class="container">
+      <form id="join-form">
+        <input id="nickname" autocomplete="off" class="input-field" type="text" placeholder="Никнейм">
+        <button class="submit-button" type="submit">Присоединиться</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('join-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nickname = document.getElementById('nickname').value;
+      window.location.href = `/chat?nickname=${nickname}`;
+    });
+  </script>
+</body>
+</html>

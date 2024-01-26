@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CC4747;
+  }
+  
+  #chat {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #D9D9D9;
+    border-radius: 30px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  input, button {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-field {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 30px;
+  }
+  
+  .submit-button {
+    background-color: #CC4747;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  li {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #CC4747;
+    color: white;
+    padding: 8px;
+    border-radius: 30px;
+    margin-bottom: 5px;
+  }
+  
+  
+  .sent {
+    background-color: #A1A1A1;
+    color: white;
+  }
+  
+  .received {
+    background-color: #f1f1f1;
+  }
+
+  p {
+    font-weight: bold;
+  }
+
+  #join-form {
+    text-align: center;
+  }
